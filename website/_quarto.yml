@@ -9,6 +9,22 @@ website:
         text: Home
       - about.qmd
 
+
+sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Home"
+        href: index.qmd
+      - section: "Practicals"
+        contents:
+          - text: "BI1296 Practical"
+            href: bi1296_practical.qmd
+          - text: "Class Example: Orthovenn"
+            href: class_example_orthovenn.qmd
+          - text: "Class Example: Phytozome"
+            href: class_example_phytozome.qmd
+
 format:
   html:
     theme:
