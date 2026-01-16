@@ -1,0 +1,159 @@
+---
+title: "BI1296 Practical"
+---
+
+## Introduction
+
+This exercise aims to give you experience handling Next Generation Sequencing (NGS) data. You will use the provided sequences to
+
+1. Perform quality assessment of the raw data
+2. Assemble a chromosome with the filtered data
+3. Assess the quality of the assembly you have created
+4. Find genes within the assembly you have created with BLAST
+5. Call variants relative to reference genomes
+6. Annotate the variants you have determined
+
+To complete the practical session, you will be using Galaxy, a web-browser based interface that acts as a scientific workflow manager. Through Galaxy, you can upload your data, analyse it using the appropriate tools, and publish your results. Galaxy’s user-friendly interface allows research scientists without programming and/or system administrator experience, to use [bioinformatics tools](https://en.wikipedia.org/wiki/Galaxy_(computational_biology)). There is no single correct way of doing these kinds of analyses, so if you think that you can complete the tasks in exercise using R and other command line interface (CLI) tools, please feel free to do so.
+
+## Data Provided
+
+For this practical, a forward simulation of a fungal chromosome was prepared. For this practical, we are using *Lentinula edodes*, a white rot fungus more commonly known as the shiitake mushroom. We have used the first chromosome from the Le(Bin) 0899 ss11 v1.0 assembly from [Mycocosm on JGI](https://mycocosm.jgi.doe.gov/Lenedo1/Lenedo1.home.html) (Zhang et al. 2022). The workflow will remain the same whether you use a single chromosome or whole genome data. The truncated data set ensures that you will be able to complete the practical session in the given time without being overwhelmed by large amounts of data.
+
+Please download the following folder from [FigShare](https://figshare.com/articles/dataset/BI1296_Practical_Files/22027607)
+
+
+The file structure of the download is as follows:
+
+1. `0_literature` The paper containing the *L. edodes* assembly as well as the two supplementary files
+
+2. `1_reference_sequences`   
+    i) The reference sequence (`lentinula_scaffold_1.fa`) 
+    ii) The annotation of scaffold 1 in gff3 format (`lentinula_scaffold_1.gff3`)
+    iii) Full length reference sequences for the two individuals (`*full_scaffold.fa`)
+    iv) Small segment of the reference sequences (`*reduced_regions.fa`)
+
+3. `2_illumina_reads`        
+    i) Paired forward (`1.fq`) and reverse (`2.fq`) reads for the selected regions (`*reduced_regions1/2.fq`) 
+    ii) Paired forward and reverse reads for the full scaffold for SE001 and SE008 (*full_length1/2.fq)
+
+4. `3_assemblies`            
+    i) SPAdes assemblies for the full length scaffold (`*full_length_scaffolds.fasta`)
+    ii) SPAdes assemblies for the selected region (`*reduced_region_scaffolds.fasta`)
+
+This is to ensure that if something does not work well on Galaxy, you can still complete the practical. However, do not jump ahead skip steps. If something doesn't work, you have to still show me that you have tried.
+
+We have provided you with two sets from two individuals of illumina reads. The individuals are called SE001 and SE008. The reads are from an Illumina Hiseq 2500 sequencer, and were simulated with ART. For this dataset, we only introduced single nucleotide polymorphisms (SNPs).
+
+## Read Quality Assessment
+Tools: FastQC, MultiQC
+
+### FastQC
+We want to perform Quality Control (QC) on our raw sequence data. We will use FastQC to generate quality reports from our fastq files, and we will use MultiQC to aggregate our reports.
+
+1.	Return to home view and select tools category `Genomic File Manipulation: FASTA/FASTQ → FastQC Read Quality reports` in the left side bar or you can search for specific tool.
+2.	Select all your sequence files from FastQC
+3.	In the history, select the FastQC webpage output file and press the eye-symbol to view it, HTML file you can download them and view from your computer browser.
+
+### MutliQC
+For a better overview of the QC reports, we can use a tool called MultiQC to aggregate our FastQC reports. 
+1.	Select `Genomic File Manipulation: Quality Control→ MultiQC` 
+2.	Select all FastQC RawData reports and set the report type to FastQC
+3.	Run MultiQC and download the resulting web page and open it to view in your web browser (it is not possible to view in Galaxy).
+
+### Questions
+
+1. Does the base quality look good? Are there any issues with the sequences?
+2. Why does base quality go down towards the end of the read?
+3. Why is GC content important? 
+4. What can a deviation from expected GC content be indicative of? 
+5. How does GC content affect assembly?
+6. Are there any detected adapter sequences? How would you remove them?
+
+## Genome Assembly and Quality Assessment
+Tools: SPAdes, QUAST
+
+### SPAdes
+The current version of [SPAdes](https://cab.spbu.ru/software/spades/) works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g. mammalian size genomes). For such purposes you can use it at your own risk
+
+One can use SPAdes to make their first assemblies, select `GENOMICS ANALYSIS: Assembly → SPAdes` and set parameters for assembly (k-mer values, read error correction etc). More importantly, SPAdes allow for addition of longer mate pair libraries, which should result in drastically improved assemblies. This is an opportunity to learn the role of mate pair libraries.SPAdes support “fastq” format as an input files (fastqsanger might not be compatible) and while uploading the data specify the file format as “fastq”. Some versions of SPAdes do not support interleaved files in that case provide separate (forward and reverse) files.
+
+::: {.callout-note}
+During the test of this practical, SPAdes was a bit finicky on Galaxy, but try it regardless. If it doesn't leave the queue after 20 minutes, just use the assemblies in the source download to complete the following tasks
+:::
+
+To create a QC report for your assembly, select `GENOMICS ANALYSIS: Assembly → Quast` and select one or more of your Contigs output. Choose Eukaryotic as type of organism and Execute.
+
+### Questions
+
+7. How many contigs have been built? 
+8. What is the mean, min and max length of the contigs?
+9. What is the N50 of the contigs? How do you interpret N50 and L50?
+10.  Can you come up with some uses of this assembly?
+
+
+## Making and using a BLAST database
+Using the lentinula_scaffold_1.fa file, you will create a BLAST database you can use on Galaxy. Use the `NCBI BLAST + makeblastdb` function to create a database with the lentinula_scaffold_1 sequence.
+
+From the *L. edodes* [JGI page](https://mycocosm.jgi.doe.gov/Lenedo1/Lenedo1.home.html) download the sequences with the names:
+
+- [ ] jgi.p|Lenedo1|1078261
+
+- [ ] jgi.p|Lenedo1|1165047
+
+- [ ] jgi.p|Lenedo1|1048113
+
+- [ ] jgi.p|Lenedo1|732152
+
+In your text editor (notepad, notepad ++ or similar tools- not MS Word!), take a look at the sequences, and choose the relevant BLAST algorithm to query the database you have created from the lentinula_scaffold_1 sequence. If you are not sure, read the descriptions of the various BLAST algorithms [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+
+### Questions
+
+11.  Are the sequences you downloaded DNA or amino acid sequences? How will this affect the BLAST algorithm you will to use?
+12.  What kind of database did you create? Nucleotide or protein? Why is this important?
+13.  Which of these sequences are not present within the database you have created?
+14.  When you compare these sequences to the NCBI database, what is the identity of these sequences?
+15.  Explain the output of the BLAST.
+
+## Read mapping and variant calling
+Tools: BWA-MEM, FreeBayes
+
+### Read Mapping
+To perform variant calling, the reads must be mapped to a reference genome. To accomplish this, we employ the Burrows-Wheeler Alignment (BWA) [tool](https://bio-bwa.sourceforge.net/bwa.shtml).
+
+> BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as long-read support and split alignment, but BWA-MEM, which is the latest, is generally recommended for high-quality queries as it is faster and more accurate. BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads.
+> For all the algorithms, BWA first needs to construct the FM-index for the reference genome (the index command). Alignment algorithms are invoked with different sub-commands: aln/samse/sampe for BWA-backtrack, bwasw for BWA-SW and mem for the BWA-MEM algorithm."
+
+
+We will be using the `BWA-MEM2` function in Galaxy. You will need to use the lentinula_scaffold_1.fa reference sequence, create an index, and select the paired reads function to map the reads to reference sequence. You will map the reduced_region_scaffolds data sets to the reference genome, not the reads for the full scaffold.
+
+### Variant Calling
+
+After mapping, you will receive a BAM formatted file. Use this to call variants with [FreeBayes](https://hbctraining.github.io/In-depth-NGS-Data-Analysis-Course/sessionVI/lessons/02_variant-calling.html#:~:text=%E2%80%9CFreeBayes%20is%20a%20Bayesian%20genetic,length%20of%20a%20short%2Dread).
+
+> FreeBayes uses short-read alignments (BAM files with Phred+33 encoded quality scores, now standard) for any number of individuals from a population and a reference genome (in FASTA format) to determine the most-likely combination of genotypes for the population at each position in the reference. It reports positions which it finds putatively polymorphic in variant call file (VCF) format. It can also use an input set of variants (VCF) as a source of prior information, and a copy number variant map (BED) to define non-uniform ploidy variation across the samples under analysis.
+
+
+Remember, you are working with a haploid dataset, so be sure to set the ploidy to 1!
+
+16.  At which position is the first variant detected?
+17.  What does the QUAL field indicate? Why are some quality scores so much lower than others?
+18.  What kind of filtering criteria would you consider with this data?
+19.  If you had a diploid species, how would the VCF differ from the one you have produced today?
+
+## Variant annotation
+Tools: SnpEff
+
+SNPeff needs a general feature format (GFF3) file as well as a FASTA file to run. It creates a database of all the coding sequences (CDSs) within a reference sequence. This database is the queried with a VCF, and the functional effect of each SNP is predicted. 
+
+Use `SnpEff build` to build a database from the lenodo_scaffold_1.fa and the lenodo_scaffold_1.gff3 files.
+
+Use `SnpEff eff` to query the SnpEff database with the VCF you created with FreeBayes.
+
+### Questions
+
+20.  What is the purpose of different translation tables? Briefly explain codon usage bias.
+21.  How does a gff2 differ from a gff3? 
+22.  What is the functional effect of SNPs in coding and non-coding regions? 
+23.  What is the transition/transversion ratio? 
+24.  How many missense, nonsense, and silent mutations are present? What is the functional effect of each of these mutations?
+25.  How many stop codons were gained? If this was a real biological dataset, is this result expected?

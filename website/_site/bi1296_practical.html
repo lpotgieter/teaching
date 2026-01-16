@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>BI1296 Practical – Teaching</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Teaching</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-provided" id="toc-data-provided" class="nav-link" data-scroll-target="#data-provided">Data Provided</a></li>
+  <li><a href="#read-quality-assessment" id="toc-read-quality-assessment" class="nav-link" data-scroll-target="#read-quality-assessment">Read Quality Assessment</a>
+  <ul class="collapse">
+  <li><a href="#fastqc" id="toc-fastqc" class="nav-link" data-scroll-target="#fastqc">FastQC</a></li>
+  <li><a href="#mutliqc" id="toc-mutliqc" class="nav-link" data-scroll-target="#mutliqc">MutliQC</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  </ul></li>
+  <li><a href="#genome-assembly-and-quality-assessment" id="toc-genome-assembly-and-quality-assessment" class="nav-link" data-scroll-target="#genome-assembly-and-quality-assessment">Genome Assembly and Quality Assessment</a>
+  <ul class="collapse">
+  <li><a href="#spades" id="toc-spades" class="nav-link" data-scroll-target="#spades">SPAdes</a></li>
+  <li><a href="#questions-1" id="toc-questions-1" class="nav-link" data-scroll-target="#questions-1">Questions</a></li>
+  </ul></li>
+  <li><a href="#making-and-using-a-blast-database" id="toc-making-and-using-a-blast-database" class="nav-link" data-scroll-target="#making-and-using-a-blast-database">Making and using a BLAST database</a>
+  <ul class="collapse">
+  <li><a href="#questions-2" id="toc-questions-2" class="nav-link" data-scroll-target="#questions-2">Questions</a></li>
+  </ul></li>
+  <li><a href="#read-mapping-and-variant-calling" id="toc-read-mapping-and-variant-calling" class="nav-link" data-scroll-target="#read-mapping-and-variant-calling">Read mapping and variant calling</a>
+  <ul class="collapse">
+  <li><a href="#read-mapping" id="toc-read-mapping" class="nav-link" data-scroll-target="#read-mapping">Read Mapping</a></li>
+  <li><a href="#variant-calling" id="toc-variant-calling" class="nav-link" data-scroll-target="#variant-calling">Variant Calling</a></li>
+  </ul></li>
+  <li><a href="#variant-annotation" id="toc-variant-annotation" class="nav-link" data-scroll-target="#variant-annotation">Variant annotation</a>
+  <ul class="collapse">
+  <li><a href="#questions-3" id="toc-questions-3" class="nav-link" data-scroll-target="#questions-3">Questions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">BI1296 Practical</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This exercise aims to give you experience handling Next Generation Sequencing (NGS) data. You will use the provided sequences to</p>
+<ol type="1">
+<li>Perform quality assessment of the raw data</li>
+<li>Assemble a chromosome with the filtered data</li>
+<li>Assess the quality of the assembly you have created</li>
+<li>Find genes within the assembly you have created with BLAST</li>
+<li>Call variants relative to reference genomes</li>
+<li>Annotate the variants you have determined</li>
+</ol>
+<p>To complete the practical session, you will be using Galaxy, a web-browser based interface that acts as a scientific workflow manager. Through Galaxy, you can upload your data, analyse it using the appropriate tools, and publish your results. Galaxy’s user-friendly interface allows research scientists without programming and/or system administrator experience, to use <a href="https://en.wikipedia.org/wiki/Galaxy_(computational_biology)">bioinformatics tools</a>. There is no single correct way of doing these kinds of analyses, so if you think that you can complete the tasks in exercise using R and other command line interface (CLI) tools, please feel free to do so.</p>
+</section>
+<section id="data-provided" class="level2">
+<h2 class="anchored" data-anchor-id="data-provided">Data Provided</h2>
+<p>For this practical, a forward simulation of a fungal chromosome was prepared. For this practical, we are using <em>Lentinula edodes</em>, a white rot fungus more commonly known as the shiitake mushroom. We have used the first chromosome from the Le(Bin) 0899 ss11 v1.0 assembly from <a href="https://mycocosm.jgi.doe.gov/Lenedo1/Lenedo1.home.html">Mycocosm on JGI</a> (Zhang et al.&nbsp;2022). The workflow will remain the same whether you use a single chromosome or whole genome data. The truncated data set ensures that you will be able to complete the practical session in the given time without being overwhelmed by large amounts of data.</p>
+<p>Please download the following folder from <a href="https://figshare.com/articles/dataset/BI1296_Practical_Files/22027607">FigShare</a></p>
+<p>The file structure of the download is as follows:</p>
+<ol type="1">
+<li><p><code>0_literature</code> The paper containing the <em>L. edodes</em> assembly as well as the two supplementary files</p></li>
+<li><p><code>1_reference_sequences</code></p>
+<ol type="i">
+<li>The reference sequence (<code>lentinula_scaffold_1.fa</code>)</li>
+<li>The annotation of scaffold 1 in gff3 format (<code>lentinula_scaffold_1.gff3</code>)</li>
+<li>Full length reference sequences for the two individuals (<code>*full_scaffold.fa</code>)</li>
+<li>Small segment of the reference sequences (<code>*reduced_regions.fa</code>)</li>
+</ol></li>
+<li><p><code>2_illumina_reads</code></p>
+<ol type="i">
+<li>Paired forward (<code>1.fq</code>) and reverse (<code>2.fq</code>) reads for the selected regions (<code>*reduced_regions1/2.fq</code>)</li>
+<li>Paired forward and reverse reads for the full scaffold for SE001 and SE008 (*full_length1/2.fq)</li>
+</ol></li>
+<li><p><code>3_assemblies</code></p>
+<ol type="i">
+<li>SPAdes assemblies for the full length scaffold (<code>*full_length_scaffolds.fasta</code>)</li>
+<li>SPAdes assemblies for the selected region (<code>*reduced_region_scaffolds.fasta</code>)</li>
+</ol></li>
+</ol>
+<p>This is to ensure that if something does not work well on Galaxy, you can still complete the practical. However, do not jump ahead skip steps. If something doesn’t work, you have to still show me that you have tried.</p>
+<p>We have provided you with two sets from two individuals of illumina reads. The individuals are called SE001 and SE008. The reads are from an Illumina Hiseq 2500 sequencer, and were simulated with ART. For this dataset, we only introduced single nucleotide polymorphisms (SNPs).</p>
+</section>
+<section id="read-quality-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="read-quality-assessment">Read Quality Assessment</h2>
+<p>Tools: FastQC, MultiQC</p>
+<section id="fastqc" class="level3">
+<h3 class="anchored" data-anchor-id="fastqc">FastQC</h3>
+<p>We want to perform Quality Control (QC) on our raw sequence data. We will use FastQC to generate quality reports from our fastq files, and we will use MultiQC to aggregate our reports.</p>
+<ol type="1">
+<li>Return to home view and select tools category <code>Genomic File Manipulation: FASTA/FASTQ → FastQC Read Quality reports</code> in the left side bar or you can search for specific tool.</li>
+<li>Select all your sequence files from FastQC</li>
+<li>In the history, select the FastQC webpage output file and press the eye-symbol to view it, HTML file you can download them and view from your computer browser.</li>
+</ol>
+</section>
+<section id="mutliqc" class="level3">
+<h3 class="anchored" data-anchor-id="mutliqc">MutliQC</h3>
+<p>For a better overview of the QC reports, we can use a tool called MultiQC to aggregate our FastQC reports. 1. Select <code>Genomic File Manipulation: Quality Control→ MultiQC</code> 2. Select all FastQC RawData reports and set the report type to FastQC 3. Run MultiQC and download the resulting web page and open it to view in your web browser (it is not possible to view in Galaxy).</p>
+</section>
+<section id="questions" class="level3">
+<h3 class="anchored" data-anchor-id="questions">Questions</h3>
+<ol type="1">
+<li>Does the base quality look good? Are there any issues with the sequences?</li>
+<li>Why does base quality go down towards the end of the read?</li>
+<li>Why is GC content important?</li>
+<li>What can a deviation from expected GC content be indicative of?</li>
+<li>How does GC content affect assembly?</li>
+<li>Are there any detected adapter sequences? How would you remove them?</li>
+</ol>
+</section>
+</section>
+<section id="genome-assembly-and-quality-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="genome-assembly-and-quality-assessment">Genome Assembly and Quality Assessment</h2>
+<p>Tools: SPAdes, QUAST</p>
+<section id="spades" class="level3">
+<h3 class="anchored" data-anchor-id="spades">SPAdes</h3>
+<p>The current version of SPAdes works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g.&nbsp;mammalian size genomes). For such purposes you can use it at your own risk Reference: https://cab.spbu.ru/software/spades/</p>
+<p>One can use SPAdes to make their first assemblies, select <code>GENOMICS ANALYSIS: Assembly → SPAdes</code> and set parameters for assembly (k-mer values, read error correction etc). More importantly, SPAdes allow for addition of longer mate pair libraries, which should result in drastically improved assemblies. This is an opportunity to learn the role of mate pair libraries.SPAdes support “fastq” format as an input files (fastqsanger might not be compatible) and while uploading the data specify the file format as “fastq”. Some versions of SPAdes do not support interleaved files in that case provide separate (forward and reverse) files.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>During the test of this practical, SPAdes was a bit finicky on Galaxy, but try it regardless. If it doesn’t leave the queue after 20 minutes, just use the assemblies in the source download to complete the following tasks</p>
+</div>
+</div>
+<p>To create a QC report for your assembly, select <code>GENOMICS ANALYSIS: Assembly → Quast</code> and select one or more of your Contigs output. Choose Eukaryotic as type of organism and Execute.</p>
+</section>
+<section id="questions-1" class="level3">
+<h3 class="anchored" data-anchor-id="questions-1">Questions</h3>
+<ol start="7" type="1">
+<li>How many contigs have been built?</li>
+<li>What is the mean, min and max length of the contigs?</li>
+<li>What is the N50 of the contigs? How do you interpret N50 and L50?</li>
+<li>Can you come up with some uses of this assembly?</li>
+</ol>
+</section>
+</section>
+<section id="making-and-using-a-blast-database" class="level2">
+<h2 class="anchored" data-anchor-id="making-and-using-a-blast-database">Making and using a BLAST database</h2>
+<p>Using the lentinula_scaffold_1.fa file, you will create a BLAST database you can use on Galaxy. Use the <code>NCBI BLAST + makeblastdb</code> function to create a database with the lentinula_scaffold_1 sequence.</p>
+<p>From the <em>L. edodes</em> <a href="https://mycocosm.jgi.doe.gov/Lenedo1/Lenedo1.home.html">JGI page</a> download the sequences with the names:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox">jgi.p|Lenedo1|1078261</label></p></li>
+<li><p><label><input type="checkbox">jgi.p|Lenedo1|1165047</label></p></li>
+<li><p><label><input type="checkbox">jgi.p|Lenedo1|1048113</label></p></li>
+<li><p><label><input type="checkbox">jgi.p|Lenedo1|732152</label></p></li>
+</ul>
+<p>In your text editor (notepad, notepad ++ or similar tools- not MS Word!), take a look at the sequences, and choose the relevant BLAST algorithm to query the database you have created from the lentinula_scaffold_1 sequence. If you are not sure, read the descriptions of the various BLAST algorithms here: https://blast.ncbi.nlm.nih.gov/Blast.cgi</p>
+<section id="questions-2" class="level3">
+<h3 class="anchored" data-anchor-id="questions-2">Questions</h3>
+<ol start="11" type="1">
+<li>Are the sequences you downloaded DNA or amino acid sequences? How will this affect the BLAST algorithm you will to use?</li>
+<li>What kind of database did you create? Nucleotide or protein? Why is this important?</li>
+<li>Which of these sequences are not present within the database you have created?</li>
+<li>When you compare these sequences to the NCBI database, what is the identity of these sequences?</li>
+<li>Explain the output of the BLAST.</li>
+</ol>
+</section>
+</section>
+<section id="read-mapping-and-variant-calling" class="level2">
+<h2 class="anchored" data-anchor-id="read-mapping-and-variant-calling">Read mapping and variant calling</h2>
+<p>Tools: BWA-MEM, FreeBayes</p>
+<section id="read-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="read-mapping">Read Mapping</h3>
+<p>To perform variant calling, the reads must be mapped to a reference genome. To accomplish this, we employ the Burrows-Wheeler Alignment (BWA) <a href="https://bio-bwa.sourceforge.net/bwa.shtml">tool</a>.</p>
+<blockquote class="blockquote">
+<p>BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as long-read support and split alignment, but BWA-MEM, which is the latest, is generally recommended for high-quality queries as it is faster and more accurate. BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads. For all the algorithms, BWA first needs to construct the FM-index for the reference genome (the index command). Alignment algorithms are invoked with different sub-commands: aln/samse/sampe for BWA-backtrack, bwasw for BWA-SW and mem for the BWA-MEM algorithm.”</p>
+</blockquote>
+<p>We will be using the BWA-MEM2 function in Galaxy. You will need to use the lentinula_scaffold_1.fa reference sequence, create an index, and select the paired reads function to map the reads to reference sequence. You will map the reduced_region_scaffolds data sets to the reference genome, not the reads for the full scaffold.</p>
+</section>
+<section id="variant-calling" class="level3">
+<h3 class="anchored" data-anchor-id="variant-calling">Variant Calling</h3>
+<p>After mapping, you will receive a BAM formatted file. Use this to call variants with <a href="https://hbctraining.github.io/In-depth-NGS-Data-Analysis-Course/sessionVI/lessons/02_variant-calling.html#:~:text=%E2%80%9CFreeBayes%20is%20a%20Bayesian%20genetic,length%20of%20a%20short%2Dread">FreeBayes</a>.</p>
+<blockquote class="blockquote">
+<p>FreeBayes uses short-read alignments (BAM files with Phred+33 encoded quality scores, now standard) for any number of individuals from a population and a reference genome (in FASTA format) to determine the most-likely combination of genotypes for the population at each position in the reference. It reports positions which it finds putatively polymorphic in variant call file (VCF) format. It can also use an input set of variants (VCF) as a source of prior information, and a copy number variant map (BED) to define non-uniform ploidy variation across the samples under analysis.</p>
+</blockquote>
+<p>Remember, you are working with a haploid dataset, so be sure to set the ploidy to 1!</p>
+<ol start="16" type="1">
+<li>At which position is the first variant detected?</li>
+<li>What does the QUAL field indicate? Why are some quality scores so much lower than others?</li>
+<li>What kind of filtering criteria would you consider with this data?</li>
+<li>If you had a diploid species, how would the VCF differ from the one you have produced today?</li>
+</ol>
+</section>
+</section>
+<section id="variant-annotation" class="level2">
+<h2 class="anchored" data-anchor-id="variant-annotation">Variant annotation</h2>
+<p>Tools: SnpEff</p>
+<p>SNPeff needs a general feature format (GFF3) file as well as a FASTA file to run. It creates a database of all the coding sequences (CDSs) within a reference sequence. This database is the queried with a VCF, and the functional effect of each SNP is predicted.</p>
+<p>Use <code>SnpEff build</code> to build a database from the lenodo_scaffold_1.fa and the lenodo_scaffold_1.gff3 files.</p>
+<p>Use <code>SnpEff eff</code> to query the SnpEff database with the VCF you created with FreeBayes.</p>
+<section id="questions-3" class="level3">
+<h3 class="anchored" data-anchor-id="questions-3">Questions</h3>
+<ol start="20" type="1">
+<li>What is the purpose of different translation tables? Briefly explain codon usage bias.</li>
+<li>How does a gff2 differ from a gff3?</li>
+<li>What is the functional effect of SNPs in coding and non-coding regions?</li>
+<li>What is the transition/transversion ratio?</li>
+<li>How many missense, nonsense, and silent mutations are present? What is the functional effect of each of these mutations?</li>
+<li>How many stop codons were gained? If this was a real biological dataset, is this result expected?</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
