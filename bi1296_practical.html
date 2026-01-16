@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Teaching</title>
+<title>BI1296 Practical – Teaching</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -108,15 +108,46 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-provided" id="toc-data-provided" class="nav-link" data-scroll-target="#data-provided">Data Provided</a></li>
+  <li><a href="#read-quality-assessment" id="toc-read-quality-assessment" class="nav-link" data-scroll-target="#read-quality-assessment">Read Quality Assessment</a>
+  <ul class="collapse">
+  <li><a href="#fastqc" id="toc-fastqc" class="nav-link" data-scroll-target="#fastqc">FastQC</a></li>
+  <li><a href="#mutliqc" id="toc-mutliqc" class="nav-link" data-scroll-target="#mutliqc">MutliQC</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  </ul></li>
+  <li><a href="#genome-assembly-and-quality-assessment" id="toc-genome-assembly-and-quality-assessment" class="nav-link" data-scroll-target="#genome-assembly-and-quality-assessment">Genome Assembly and Quality Assessment</a>
+  <ul class="collapse">
+  <li><a href="#spades" id="toc-spades" class="nav-link" data-scroll-target="#spades">SPAdes</a></li>
+  <li><a href="#questions-1" id="toc-questions-1" class="nav-link" data-scroll-target="#questions-1">Questions</a></li>
+  </ul></li>
+  <li><a href="#making-and-using-a-blast-database" id="toc-making-and-using-a-blast-database" class="nav-link" data-scroll-target="#making-and-using-a-blast-database">Making and using a BLAST database</a>
+  <ul class="collapse">
+  <li><a href="#questions-2" id="toc-questions-2" class="nav-link" data-scroll-target="#questions-2">Questions</a></li>
+  </ul></li>
+  <li><a href="#read-mapping-and-variant-calling" id="toc-read-mapping-and-variant-calling" class="nav-link" data-scroll-target="#read-mapping-and-variant-calling">Read mapping and variant calling</a>
+  <ul class="collapse">
+  <li><a href="#read-mapping" id="toc-read-mapping" class="nav-link" data-scroll-target="#read-mapping">Read Mapping</a></li>
+  <li><a href="#variant-calling" id="toc-variant-calling" class="nav-link" data-scroll-target="#variant-calling">Variant Calling</a></li>
+  </ul></li>
+  <li><a href="#variant-annotation" id="toc-variant-annotation" class="nav-link" data-scroll-target="#variant-annotation">Variant annotation</a>
+  <ul class="collapse">
+  <li><a href="#questions-3" id="toc-questions-3" class="nav-link" data-scroll-target="#questions-3">Questions</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Teaching</h1>
+<h1 class="title">BI1296 Practical</h1>
 </div>
 
 
@@ -133,9 +164,175 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a collection of various teaching materials I use in parts of other courses, mostly at SLU</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This exercise aims to give you experience handling Next Generation Sequencing (NGS) data. You will use the provided sequences to</p>
+<ol type="1">
+<li>Perform quality assessment of the raw data</li>
+<li>Assemble a chromosome with the filtered data</li>
+<li>Assess the quality of the assembly you have created</li>
+<li>Find genes within the assembly you have created with BLAST</li>
+<li>Call variants relative to reference genomes</li>
+<li>Annotate the variants you have determined</li>
+</ol>
+<p>To complete the practical session, you will be using Galaxy, a web-browser based interface that acts as a scientific workflow manager. Through Galaxy, you can upload your data, analyse it using the appropriate tools, and publish your results. Galaxy’s user-friendly interface allows research scientists without programming and/or system administrator experience, to use <a href="https://en.wikipedia.org/wiki/Galaxy_(computational_biology)">bioinformatics tools</a>. There is no single correct way of doing these kinds of analyses, so if you think that you can complete the tasks in exercise using R and other command line interface (CLI) tools, please feel free to do so.</p>
+</section>
+<section id="data-provided" class="level2">
+<h2 class="anchored" data-anchor-id="data-provided">Data Provided</h2>
+<p>For this practical, a forward simulation of a fungal chromosome was prepared. For this practical, we are using <em>Lentinula edodes</em>, a white rot fungus more commonly known as the shiitake mushroom. We have used the first chromosome from the Le(Bin) 0899 ss11 v1.0 assembly from <a href="https://mycocosm.jgi.doe.gov/Lenedo1/Lenedo1.home.html">Mycocosm on JGI</a> (Zhang et al.&nbsp;2022). The workflow will remain the same whether you use a single chromosome or whole genome data. The truncated data set ensures that you will be able to complete the practical session in the given time without being overwhelmed by large amounts of data.</p>
+<p>Please download the following folder from <a href="https://figshare.com/articles/dataset/BI1296_Practical_Files/22027607">FigShare</a></p>
+<p>The file structure of the download is as follows:</p>
+<ol type="1">
+<li><p><code>0_literature</code> The paper containing the <em>L. edodes</em> assembly as well as the two supplementary files</p></li>
+<li><p><code>1_reference_sequences</code></p>
+<ol type="i">
+<li>The reference sequence (<code>lentinula_scaffold_1.fa</code>)</li>
+<li>The annotation of scaffold 1 in gff3 format (<code>lentinula_scaffold_1.gff3</code>)</li>
+<li>Full length reference sequences for the two individuals (<code>*full_scaffold.fa</code>)</li>
+<li>Small segment of the reference sequences (<code>*reduced_regions.fa</code>)</li>
+</ol></li>
+<li><p><code>2_illumina_reads</code></p>
+<ol type="i">
+<li>Paired forward (<code>1.fq</code>) and reverse (<code>2.fq</code>) reads for the selected regions (<code>*reduced_regions1/2.fq</code>)</li>
+<li>Paired forward and reverse reads for the full scaffold for SE001 and SE008 (*full_length1/2.fq)</li>
+</ol></li>
+<li><p><code>3_assemblies</code></p>
+<ol type="i">
+<li>SPAdes assemblies for the full length scaffold (<code>*full_length_scaffolds.fasta</code>)</li>
+<li>SPAdes assemblies for the selected region (<code>*reduced_region_scaffolds.fasta</code>)</li>
+</ol></li>
+</ol>
+<p>This is to ensure that if something does not work well on Galaxy, you can still complete the practical. However, do not jump ahead skip steps. If something doesn’t work, you have to still show me that you have tried.</p>
+<p>We have provided you with two sets from two individuals of illumina reads. The individuals are called SE001 and SE008. The reads are from an Illumina Hiseq 2500 sequencer, and were simulated with ART. For this dataset, we only introduced single nucleotide polymorphisms (SNPs).</p>
+</section>
+<section id="read-quality-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="read-quality-assessment">Read Quality Assessment</h2>
+<p>Tools: FastQC, MultiQC</p>
+<section id="fastqc" class="level3">
+<h3 class="anchored" data-anchor-id="fastqc">FastQC</h3>
+<p>We want to perform Quality Control (QC) on our raw sequence data. We will use FastQC to generate quality reports from our fastq files, and we will use MultiQC to aggregate our reports.</p>
+<ol type="1">
+<li>Return to home view and select tools category <code>Genomic File Manipulation: FASTA/FASTQ → FastQC Read Quality reports</code> in the left side bar or you can search for specific tool.</li>
+<li>Select all your sequence files from FastQC</li>
+<li>In the history, select the FastQC webpage output file and press the eye-symbol to view it, HTML file you can download them and view from your computer browser.</li>
+</ol>
+</section>
+<section id="mutliqc" class="level3">
+<h3 class="anchored" data-anchor-id="mutliqc">MutliQC</h3>
+<p>For a better overview of the QC reports, we can use a tool called MultiQC to aggregate our FastQC reports. 1. Select <code>Genomic File Manipulation: Quality Control→ MultiQC</code> 2. Select all FastQC RawData reports and set the report type to FastQC 3. Run MultiQC and download the resulting web page and open it to view in your web browser (it is not possible to view in Galaxy).</p>
+</section>
+<section id="questions" class="level3">
+<h3 class="anchored" data-anchor-id="questions">Questions</h3>
+<ol type="1">
+<li>Does the base quality look good? Are there any issues with the sequences?</li>
+<li>Why does base quality go down towards the end of the read?</li>
+<li>Why is GC content important?</li>
+<li>What can a deviation from expected GC content be indicative of?</li>
+<li>How does GC content affect assembly?</li>
+<li>Are there any detected adapter sequences? How would you remove them?</li>
+</ol>
+</section>
+</section>
+<section id="genome-assembly-and-quality-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="genome-assembly-and-quality-assessment">Genome Assembly and Quality Assessment</h2>
+<p>Tools: SPAdes, QUAST</p>
+<section id="spades" class="level3">
+<h3 class="anchored" data-anchor-id="spades">SPAdes</h3>
+<p>The current version of <a href="https://cab.spbu.ru/software/spades/">SPAdes</a> works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g.&nbsp;mammalian size genomes). For such purposes you can use it at your own risk</p>
+<p>One can use SPAdes to make their first assemblies, select <code>GENOMICS ANALYSIS: Assembly → SPAdes</code> and set parameters for assembly (k-mer values, read error correction etc). More importantly, SPAdes allow for addition of longer mate pair libraries, which should result in drastically improved assemblies. This is an opportunity to learn the role of mate pair libraries.SPAdes support “fastq” format as an input files (fastqsanger might not be compatible) and while uploading the data specify the file format as “fastq”. Some versions of SPAdes do not support interleaved files in that case provide separate (forward and reverse) files.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>During the test of this practical, SPAdes was a bit finicky on Galaxy, but try it regardless. If it doesn’t leave the queue after 20 minutes, just use the assemblies in the source download to complete the following tasks</p>
+</div>
+</div>
+<p>To create a QC report for your assembly, select <code>GENOMICS ANALYSIS: Assembly → Quast</code> and select one or more of your Contigs output. Choose Eukaryotic as type of organism and Execute.</p>
+</section>
+<section id="questions-1" class="level3">
+<h3 class="anchored" data-anchor-id="questions-1">Questions</h3>
+<ol start="7" type="1">
+<li>How many contigs have been built?</li>
+<li>What is the mean, min and max length of the contigs?</li>
+<li>What is the N50 of the contigs? How do you interpret N50 and L50?</li>
+<li>Can you come up with some uses of this assembly?</li>
+</ol>
+</section>
+</section>
+<section id="making-and-using-a-blast-database" class="level2">
+<h2 class="anchored" data-anchor-id="making-and-using-a-blast-database">Making and using a BLAST database</h2>
+<p>Using the lentinula_scaffold_1.fa file, you will create a BLAST database you can use on Galaxy. Use the <code>NCBI BLAST + makeblastdb</code> function to create a database with the lentinula_scaffold_1 sequence.</p>
+<p>From the <em>L. edodes</em> <a href="https://mycocosm.jgi.doe.gov/Lenedo1/Lenedo1.home.html">JGI page</a> download the sequences with the names:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox">jgi.p|Lenedo1|1078261</label></p></li>
+<li><p><label><input type="checkbox">jgi.p|Lenedo1|1165047</label></p></li>
+<li><p><label><input type="checkbox">jgi.p|Lenedo1|1048113</label></p></li>
+<li><p><label><input type="checkbox">jgi.p|Lenedo1|732152</label></p></li>
+</ul>
+<p>In your text editor (notepad, notepad ++ or similar tools- not MS Word!), take a look at the sequences, and choose the relevant BLAST algorithm to query the database you have created from the lentinula_scaffold_1 sequence. If you are not sure, read the descriptions of the various BLAST algorithms <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">here</a></p>
+<section id="questions-2" class="level3">
+<h3 class="anchored" data-anchor-id="questions-2">Questions</h3>
+<ol start="11" type="1">
+<li>Are the sequences you downloaded DNA or amino acid sequences? How will this affect the BLAST algorithm you will to use?</li>
+<li>What kind of database did you create? Nucleotide or protein? Why is this important?</li>
+<li>Which of these sequences are not present within the database you have created?</li>
+<li>When you compare these sequences to the NCBI database, what is the identity of these sequences?</li>
+<li>Explain the output of the BLAST.</li>
+</ol>
+</section>
+</section>
+<section id="read-mapping-and-variant-calling" class="level2">
+<h2 class="anchored" data-anchor-id="read-mapping-and-variant-calling">Read mapping and variant calling</h2>
+<p>Tools: BWA-MEM, FreeBayes</p>
+<section id="read-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="read-mapping">Read Mapping</h3>
+<p>To perform variant calling, the reads must be mapped to a reference genome. To accomplish this, we employ the Burrows-Wheeler Alignment (BWA) <a href="https://bio-bwa.sourceforge.net/bwa.shtml">tool</a>.</p>
+<blockquote class="blockquote">
+<p>BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as long-read support and split alignment, but BWA-MEM, which is the latest, is generally recommended for high-quality queries as it is faster and more accurate. BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads. For all the algorithms, BWA first needs to construct the FM-index for the reference genome (the index command). Alignment algorithms are invoked with different sub-commands: aln/samse/sampe for BWA-backtrack, bwasw for BWA-SW and mem for the BWA-MEM algorithm.”</p>
+</blockquote>
+<p>We will be using the <code>BWA-MEM2</code> function in Galaxy. You will need to use the lentinula_scaffold_1.fa reference sequence, create an index, and select the paired reads function to map the reads to reference sequence. You will map the reduced_region_scaffolds data sets to the reference genome, not the reads for the full scaffold.</p>
+</section>
+<section id="variant-calling" class="level3">
+<h3 class="anchored" data-anchor-id="variant-calling">Variant Calling</h3>
+<p>After mapping, you will receive a BAM formatted file. Use this to call variants with <a href="https://hbctraining.github.io/In-depth-NGS-Data-Analysis-Course/sessionVI/lessons/02_variant-calling.html#:~:text=%E2%80%9CFreeBayes%20is%20a%20Bayesian%20genetic,length%20of%20a%20short%2Dread">FreeBayes</a>.</p>
+<blockquote class="blockquote">
+<p>FreeBayes uses short-read alignments (BAM files with Phred+33 encoded quality scores, now standard) for any number of individuals from a population and a reference genome (in FASTA format) to determine the most-likely combination of genotypes for the population at each position in the reference. It reports positions which it finds putatively polymorphic in variant call file (VCF) format. It can also use an input set of variants (VCF) as a source of prior information, and a copy number variant map (BED) to define non-uniform ploidy variation across the samples under analysis.</p>
+</blockquote>
+<p>Remember, you are working with a haploid dataset, so be sure to set the ploidy to 1!</p>
+<ol start="16" type="1">
+<li>At which position is the first variant detected?</li>
+<li>What does the QUAL field indicate? Why are some quality scores so much lower than others?</li>
+<li>What kind of filtering criteria would you consider with this data?</li>
+<li>If you had a diploid species, how would the VCF differ from the one you have produced today?</li>
+</ol>
+</section>
+</section>
+<section id="variant-annotation" class="level2">
+<h2 class="anchored" data-anchor-id="variant-annotation">Variant annotation</h2>
+<p>Tools: SnpEff</p>
+<p>SNPeff needs a general feature format (GFF3) file as well as a FASTA file to run. It creates a database of all the coding sequences (CDSs) within a reference sequence. This database is the queried with a VCF, and the functional effect of each SNP is predicted.</p>
+<p>Use <code>SnpEff build</code> to build a database from the lenodo_scaffold_1.fa and the lenodo_scaffold_1.gff3 files.</p>
+<p>Use <code>SnpEff eff</code> to query the SnpEff database with the VCF you created with FreeBayes.</p>
+<section id="questions-3" class="level3">
+<h3 class="anchored" data-anchor-id="questions-3">Questions</h3>
+<ol start="20" type="1">
+<li>What is the purpose of different translation tables? Briefly explain codon usage bias.</li>
+<li>How does a gff2 differ from a gff3?</li>
+<li>What is the functional effect of SNPs in coding and non-coding regions?</li>
+<li>What is the transition/transversion ratio?</li>
+<li>How many missense, nonsense, and silent mutations are present? What is the functional effect of each of these mutations?</li>
+<li>How many stop codons were gained? If this was a real biological dataset, is this result expected?</li>
+</ol>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
