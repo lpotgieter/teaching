@@ -238,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Tools: SPAdes, QUAST</p>
 <section id="spades" class="level3">
 <h3 class="anchored" data-anchor-id="spades">SPAdes</h3>
-<p>The current version of SPAdes works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g.&nbsp;mammalian size genomes). For such purposes you can use it at your own risk Reference: https://cab.spbu.ru/software/spades/</p>
+<p>The current version of <a href="https://cab.spbu.ru/software/spades/">SPAdes</a> works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g.&nbsp;mammalian size genomes). For such purposes you can use it at your own risk</p>
 <p>One can use SPAdes to make their first assemblies, select <code>GENOMICS ANALYSIS: Assembly → SPAdes</code> and set parameters for assembly (k-mer values, read error correction etc). More importantly, SPAdes allow for addition of longer mate pair libraries, which should result in drastically improved assemblies. This is an opportunity to learn the role of mate pair libraries.SPAdes support “fastq” format as an input files (fastqsanger might not be compatible) and while uploading the data specify the file format as “fastq”. Some versions of SPAdes do not support interleaved files in that case provide separate (forward and reverse) files.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -275,7 +275,7 @@ Note
 <li><p><label><input type="checkbox">jgi.p|Lenedo1|1048113</label></p></li>
 <li><p><label><input type="checkbox">jgi.p|Lenedo1|732152</label></p></li>
 </ul>
-<p>In your text editor (notepad, notepad ++ or similar tools- not MS Word!), take a look at the sequences, and choose the relevant BLAST algorithm to query the database you have created from the lentinula_scaffold_1 sequence. If you are not sure, read the descriptions of the various BLAST algorithms here: https://blast.ncbi.nlm.nih.gov/Blast.cgi</p>
+<p>In your text editor (notepad, notepad ++ or similar tools- not MS Word!), take a look at the sequences, and choose the relevant BLAST algorithm to query the database you have created from the lentinula_scaffold_1 sequence. If you are not sure, read the descriptions of the various BLAST algorithms <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">here</a></p>
 <section id="questions-2" class="level3">
 <h3 class="anchored" data-anchor-id="questions-2">Questions</h3>
 <ol start="11" type="1">
@@ -296,7 +296,7 @@ Note
 <blockquote class="blockquote">
 <p>BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as long-read support and split alignment, but BWA-MEM, which is the latest, is generally recommended for high-quality queries as it is faster and more accurate. BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads. For all the algorithms, BWA first needs to construct the FM-index for the reference genome (the index command). Alignment algorithms are invoked with different sub-commands: aln/samse/sampe for BWA-backtrack, bwasw for BWA-SW and mem for the BWA-MEM algorithm.”</p>
 </blockquote>
-<p>We will be using the BWA-MEM2 function in Galaxy. You will need to use the lentinula_scaffold_1.fa reference sequence, create an index, and select the paired reads function to map the reads to reference sequence. You will map the reduced_region_scaffolds data sets to the reference genome, not the reads for the full scaffold.</p>
+<p>We will be using the <code>BWA-MEM2</code> function in Galaxy. You will need to use the lentinula_scaffold_1.fa reference sequence, create an index, and select the paired reads function to map the reads to reference sequence. You will map the reduced_region_scaffolds data sets to the reference genome, not the reads for the full scaffold.</p>
 </section>
 <section id="variant-calling" class="level3">
 <h3 class="anchored" data-anchor-id="variant-calling">Variant Calling</h3>

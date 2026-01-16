@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Teaching",
@@ -19,13 +12,6 @@
     "title": "BI1296 Practical",
     "section": "",
     "text": "This exercise aims to give you experience handling Next Generation Sequencing (NGS) data. You will use the provided sequences to\n\nPerform quality assessment of the raw data\nAssemble a chromosome with the filtered data\nAssess the quality of the assembly you have created\nFind genes within the assembly you have created with BLAST\nCall variants relative to reference genomes\nAnnotate the variants you have determined\n\nTo complete the practical session, you will be using Galaxy, a web-browser based interface that acts as a scientific workflow manager. Through Galaxy, you can upload your data, analyse it using the appropriate tools, and publish your results. Galaxy’s user-friendly interface allows research scientists without programming and/or system administrator experience, to use bioinformatics tools. There is no single correct way of doing these kinds of analyses, so if you think that you can complete the tasks in exercise using R and other command line interface (CLI) tools, please feel free to do so."
-  },
-  {
-    "objectID": "bi1296_practical.html#bi1296-bioinformatics-practical-2024",
-    "href": "bi1296_practical.html#bi1296-bioinformatics-practical-2024",
-    "title": "BI1296 Practical",
-    "section": "",
-    "text": "Facilitators: Erik Alexandersson, Lizel Potgieter"
   },
   {
     "objectID": "bi1296_practical.html#introduction",
@@ -53,14 +39,14 @@
     "href": "bi1296_practical.html#genome-assembly-and-quality-assessment",
     "title": "BI1296 Practical",
     "section": "Genome Assembly and Quality Assessment",
-    "text": "Genome Assembly and Quality Assessment\nTools: SPAdes, QUAST\n\nSPAdes\nThe current version of SPAdes works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g. mammalian size genomes). For such purposes you can use it at your own risk Reference: https://cab.spbu.ru/software/spades/\nOne can use SPAdes to make their first assemblies, select GENOMICS ANALYSIS: Assembly → SPAdes and set parameters for assembly (k-mer values, read error correction etc). More importantly, SPAdes allow for addition of longer mate pair libraries, which should result in drastically improved assemblies. This is an opportunity to learn the role of mate pair libraries.SPAdes support “fastq” format as an input files (fastqsanger might not be compatible) and while uploading the data specify the file format as “fastq”. Some versions of SPAdes do not support interleaved files in that case provide separate (forward and reverse) files.\n\n\n\n\n\n\nNote\n\n\n\nDuring the test of this practical, SPAdes was a bit finicky on Galaxy, but try it regardless. If it doesn’t leave the queue after 20 minutes, just use the assemblies in the source download to complete the following tasks\n\n\nTo create a QC report for your assembly, select GENOMICS ANALYSIS: Assembly → Quast and select one or more of your Contigs output. Choose Eukaryotic as type of organism and Execute.\n\n\nQuestions\n\nHow many contigs have been built?\nWhat is the mean, min and max length of the contigs?\nWhat is the N50 of the contigs? How do you interpret N50 and L50?\nCan you come up with some uses of this assembly?"
+    "text": "Genome Assembly and Quality Assessment\nTools: SPAdes, QUAST\n\nSPAdes\nThe current version of SPAdes works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g. mammalian size genomes). For such purposes you can use it at your own risk\nOne can use SPAdes to make their first assemblies, select GENOMICS ANALYSIS: Assembly → SPAdes and set parameters for assembly (k-mer values, read error correction etc). More importantly, SPAdes allow for addition of longer mate pair libraries, which should result in drastically improved assemblies. This is an opportunity to learn the role of mate pair libraries.SPAdes support “fastq” format as an input files (fastqsanger might not be compatible) and while uploading the data specify the file format as “fastq”. Some versions of SPAdes do not support interleaved files in that case provide separate (forward and reverse) files.\n\n\n\n\n\n\nNote\n\n\n\nDuring the test of this practical, SPAdes was a bit finicky on Galaxy, but try it regardless. If it doesn’t leave the queue after 20 minutes, just use the assemblies in the source download to complete the following tasks\n\n\nTo create a QC report for your assembly, select GENOMICS ANALYSIS: Assembly → Quast and select one or more of your Contigs output. Choose Eukaryotic as type of organism and Execute.\n\n\nQuestions\n\nHow many contigs have been built?\nWhat is the mean, min and max length of the contigs?\nWhat is the N50 of the contigs? How do you interpret N50 and L50?\nCan you come up with some uses of this assembly?"
   },
   {
     "objectID": "bi1296_practical.html#making-and-using-a-blast-database",
     "href": "bi1296_practical.html#making-and-using-a-blast-database",
     "title": "BI1296 Practical",
     "section": "Making and using a BLAST database",
-    "text": "Making and using a BLAST database\nUsing the lentinula_scaffold_1.fa file, you will create a BLAST database you can use on Galaxy. Use the NCBI BLAST + makeblastdb function to create a database with the lentinula_scaffold_1 sequence.\nFrom the L. edodes JGI page download the sequences with the names:\n\njgi.p|Lenedo1|1078261\njgi.p|Lenedo1|1165047\njgi.p|Lenedo1|1048113\njgi.p|Lenedo1|732152\n\nIn your text editor (notepad, notepad ++ or similar tools- not MS Word!), take a look at the sequences, and choose the relevant BLAST algorithm to query the database you have created from the lentinula_scaffold_1 sequence. If you are not sure, read the descriptions of the various BLAST algorithms here: https://blast.ncbi.nlm.nih.gov/Blast.cgi\n\nQuestions\n\nAre the sequences you downloaded DNA or amino acid sequences? How will this affect the BLAST algorithm you will to use?\nWhat kind of database did you create? Nucleotide or protein? Why is this important?\nWhich of these sequences are not present within the database you have created?\nWhen you compare these sequences to the NCBI database, what is the identity of these sequences?\nExplain the output of the BLAST."
+    "text": "Making and using a BLAST database\nUsing the lentinula_scaffold_1.fa file, you will create a BLAST database you can use on Galaxy. Use the NCBI BLAST + makeblastdb function to create a database with the lentinula_scaffold_1 sequence.\nFrom the L. edodes JGI page download the sequences with the names:\n\njgi.p|Lenedo1|1078261\njgi.p|Lenedo1|1165047\njgi.p|Lenedo1|1048113\njgi.p|Lenedo1|732152\n\nIn your text editor (notepad, notepad ++ or similar tools- not MS Word!), take a look at the sequences, and choose the relevant BLAST algorithm to query the database you have created from the lentinula_scaffold_1 sequence. If you are not sure, read the descriptions of the various BLAST algorithms here\n\nQuestions\n\nAre the sequences you downloaded DNA or amino acid sequences? How will this affect the BLAST algorithm you will to use?\nWhat kind of database did you create? Nucleotide or protein? Why is this important?\nWhich of these sequences are not present within the database you have created?\nWhen you compare these sequences to the NCBI database, what is the identity of these sequences?\nExplain the output of the BLAST."
   },
   {
     "objectID": "bi1296_practical.html#read-mapping-and-variant-calling",
@@ -75,5 +61,12 @@
     "title": "BI1296 Practical",
     "section": "Variant annotation",
     "text": "Variant annotation\nTools: SnpEff\nSNPeff needs a general feature format (GFF3) file as well as a FASTA file to run. It creates a database of all the coding sequences (CDSs) within a reference sequence. This database is the queried with a VCF, and the functional effect of each SNP is predicted.\nUse SnpEff build to build a database from the lenodo_scaffold_1.fa and the lenodo_scaffold_1.gff3 files.\nUse SnpEff eff to query the SnpEff database with the VCF you created with FreeBayes.\n\nQuestions\n\nWhat is the purpose of different translation tables? Briefly explain codon usage bias.\nHow does a gff2 differ from a gff3?\nWhat is the functional effect of SNPs in coding and non-coding regions?\nWhat is the transition/transversion ratio?\nHow many missense, nonsense, and silent mutations are present? What is the functional effect of each of these mutations?\nHow many stop codons were gained? If this was a real biological dataset, is this result expected?"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
   }
 ]
