@@ -2,4 +2,10 @@
 title: "About"
 ---
 
-About this site
+This site contains practicals and class examples from various courses.
+
+The [BI1296 Practical](bi1296_practical.qmd) takes a look at how to use Galaxy with some simulated shiitake mushroom data.
+
+The [OrthoVenn3 example](class_example_orthovenn.qmd) takes look at previously compiled orthology analyses to characterise a random sequence using only the principles of form=function
+
+The [Phytozome example](class_example_phytozome.qmd) takes a sequence name from a paper, and takes you through obtaining the sequence from Phytozome and functionally characterising the sequence.

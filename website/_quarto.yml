@@ -10,7 +10,7 @@ website:
       - about.qmd
 
 
-sidebar:
+  sidebar:
     style: "docked"
     search: true
     contents:
