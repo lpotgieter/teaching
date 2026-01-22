@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Class Example: Orthovenn – Teaching</title>
+<title>Class Example: OrthoVenn3 – Teaching</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bi1296_practical.html">Practicals</a></li><li class="breadcrumb-item"><a href="./class_example_orthovenn.html">Class Example: Orthovenn</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bi1296_practical.html">Practicals</a></li><li class="breadcrumb-item"><a href="./class_example_orthovenn.html">Class Example: OrthoVenn3</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -152,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./class_example_orthovenn.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Class Example: Orthovenn</span></a>
+ <span class="menu-text">Class Example: OrthoVenn3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -168,15 +168,25 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#orthovenn3" id="toc-orthovenn3" class="nav-link" data-scroll-target="#orthovenn3">OrthoVenn3</a>
+  <ul class="collapse">
+  <li><a href="#orthologous-analysis" id="toc-orthologous-analysis" class="nav-link" data-scroll-target="#orthologous-analysis">Orthologous analysis</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bi1296_practical.html">Practicals</a></li><li class="breadcrumb-item"><a href="./class_example_orthovenn.html">Class Example: Orthovenn</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bi1296_practical.html">Practicals</a></li><li class="breadcrumb-item"><a href="./class_example_orthovenn.html">Class Example: OrthoVenn3</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Class Example: Orthovenn</h1>
+<h1 class="title">Class Example: OrthoVenn3</h1>
 </div>
 
 
@@ -193,8 +203,100 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Homology is an important concept in bioinformatics, as well as in biology as a whole. We can say a lot about the evolutionary history of a DNA sequence and its corresponding protein based on its similarity to other sequences.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/orthovenn/orthologs.jpg" class="img-fluid figure-img"></p>
+<figcaption>Relationship of homologs, paralogs, and orthologs. <a href="http://www.discoveryandinnovation.com/bioinformatics/glossary_detail/homolog.html">Source</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="orthovenn3" class="level2">
+<h2 class="anchored" data-anchor-id="orthovenn3">OrthoVenn3</h2>
+<p><a href="https://orthovenn3.bioinfotoolkits.net/">OrthoVenn3 landing page</a> is a web-based tool for ortholog discovery. It makes use of either OrthoMCL or OrthoFinder algorithms to assign orthologs based on sequence similarity. You can opt to perform a phylogenetic analysis as well an expansion and contraction analyses. If you provide a gff, collinearity analyses can be performed to visualise macrosynteny. (Here it is important to note it does not consider intergenic regions, only ortholog prediction).</p>
+<p>You can select up to 11 distinct datasets of proteins to analyse. These datasets can include proteins from your own genomes that you upload and/or the datasets provided by the authors. There are a variety of proteomes from all domains of life available to choose from under the <code>Start</code> tab. We are going to use previously computed datasets from the <code>Gallery</code> tab.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you want to try and see what your favourite species from the list might look like, or if you have a proteome from NCBI, feel free to start that at the beginning of the session. It takes a bit of time to compute, and if the whole class submits a run at the same time, we might end up running out of time.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/orthovenn/orthovenn_gallery.png" class="img-fluid figure-img"></p>
+<figcaption>OrthoVenn Gallery View</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/orthovenn/.png" class="img-fluid figure-img"></p>
+<figcaption>OrthoVenn Gallery image we will be considering in this practical. Please feel free to have a look at other images too</figcaption>
+</figure>
+</div>
+<section id="orthologous-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="orthologous-analysis">Orthologous analysis</h3>
+<p>The <a href="https://orthovenn3.bioinfotoolkits.net/result/b2f35873861c470f9f299b415e585044/orthologous">orthologous analysis</a> tab contains a lot of information! <code>Upset plots</code> are a wonderful way to show a complex datasets. In the <code>Cluster Count</code> bar chart area, you can see how many ortholog clusters are in each subset. Subsets are defined by how many individual species have at least one representative of the ortholog cluster. The dot plot below the bar chart shows which species are represented in the subset. Next to the dataset name, you can find how many ortholog clusters are present in the total dataset. You can have a different representation under <code>occurence</code>, but I find Upset plots more informative!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/orthovenn/orthovenn_upset.png" class="img-fluid figure-img"></p>
+<figcaption>Upset plot of the plant gallery image</figcaption>
+</figure>
+</div>
+<p>You can also see a Venn diagram of how many clusters are shared between species. This visualisation has more limitations than the Upset plot purely because of the space required for overlaps.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/orthovenn/orthovenn_venn.png" class="img-fluid figure-img"></p>
+<figcaption>Venn diagram</figcaption>
+</figure>
+</div>
+<p>The results are also available in an interactive table. <code>Singletons</code> are clusters where only one sequence is in the cluster from each species in the analysis.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/orthovenn/orthovenn_result_table.png" class="img-fluid figure-img"></p>
+<figcaption>Table of results</figcaption>
+</figure>
+</div>
+<p>The Upset plot, venn diagram, and result table are all interactive. You could click on the bar on the left for clusters present in all species to take you to a description of the annotation of these clusters. You can see how many proteins are in the cluster, the <a href="https://www.expasy.org/resources/uniprotkb-swiss-prot">Swiss-Prot hit</a>. You can also see the GO terms represented by the orthogroup</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/orthovenn/expasy_search.png" class="img-fluid figure-img"></p>
+<figcaption>Expasy Search result from the ID of cluster15581, the first single copy cluster (Q9FHX3)</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This shows how important it is to ensure that your work subscribes to FAIR principles! You can query between databases and collect all available information with little difficulty. Imagine if everyone was just doing their own thing with their own databases…</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/orthovenn/orthovenn_single_copy_cluster.png" class="img-fluid figure-img"></p>
+<figcaption>Network analysis of cluster15581</figcaption>
+</figure>
+</div>
+<p>From this page, you can download the fasta sequences of the cluster in <code>.fasta</code> format. You can have a look at the motif analysis, and perform a <code>multiple sequence alignment</code>.</p>
+<p>Please have a look at the other <a href="./class_example_phytozome.html">class example</a> to see some other cool tools you can use to characterise the sequence, and go through some of them.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
