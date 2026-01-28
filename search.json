@@ -50,9 +50,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Teaching",
+    "title": "About",
     "section": "",
-    "text": "This is a collection of various teaching materials I use in parts of other courses, mostly at SLU",
+    "text": "This site contains practicals and class examples from various courses.\nThe BI1296 Practical takes a look at how to use Galaxy with some simulated shiitake mushroom data.\nThe OrthoVenn3 example takes look at previously compiled orthology analyses to characterise a random sequence using only the principles of form=function\nThe Phytozome example takes a sequence name from a paper, and takes you through obtaining the sequence from Phytozome and functionally characterising the sequence.",
     "crumbs": [
       "Home"
     ]
