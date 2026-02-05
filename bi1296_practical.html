@@ -263,7 +263,7 @@ Important
 <li><p><code>2_illumina_reads</code></p>
 <ol type="i">
 <li>Paired forward (<code>1.fq</code>) and reverse (<code>2.fq</code>) reads for the selected regions (<code>*reduced_regions1/2.fq</code>)</li>
-<li>Paired forward and reverse reads for the full scaffold for SE001 and SE008 (*full_length1/2.fq)</li>
+<li>Paired forward and reverse reads for the full scaffold for SE001 and SE008 (<code>*full_length1/2.fq</code>)</li>
 </ol></li>
 <li><p><code>3_assemblies</code></p>
 <ol type="i">
@@ -279,6 +279,19 @@ Important
 <p>Tools: FastQC, MultiQC</p>
 <section id="fastqc" class="level3">
 <h3 class="anchored" data-anchor-id="fastqc">FastQC</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use full length datasets of relevant file type here</p>
+</div>
+</div>
 <p>We want to perform Quality Control (QC) on our raw sequence data. We will use FastQC to generate quality reports from our fastq files, and we will use MultiQC to aggregate our reports.</p>
 <ol type="1">
 <li>Return to home view and select tools category <code>Genomic File Manipulation: FASTA/FASTQ → FastQC Read Quality reports</code> in the left side bar or you can search for specific tool.</li>
@@ -288,7 +301,12 @@ Important
 </section>
 <section id="multiqc" class="level3">
 <h3 class="anchored" data-anchor-id="multiqc">MultiQC</h3>
-<p>For a better overview of the QC reports, we can use a tool called MultiQC to aggregate our FastQC reports. 1. Select <code>Genomic File Manipulation: Quality Control→ MultiQC</code> 2. Select all FastQC RawData reports and set the report type to FastQC 3. Run MultiQC and download the resulting web page and open it to view in your web browser (it is not possible to view in Galaxy).</p>
+<p>For a better overview of the QC reports, we can use a tool called MultiQC to aggregate our FastQC reports.</p>
+<ol type="1">
+<li>Select <code>Genomic File Manipulation: Quality Control→ MultiQC</code></li>
+<li>Select all FastQC RawData reports and set the report type to FastQC</li>
+<li>Run MultiQC and download the resulting web page and open it to view in your web browser (it is not possible to view in Galaxy).</li>
+</ol>
 </section>
 <section id="questions" class="level3">
 <h3 class="anchored" data-anchor-id="questions">Questions</h3>
@@ -307,6 +325,19 @@ Important
 <p>Tools: SPAdes, QUAST</p>
 <section id="spades" class="level3">
 <h3 class="anchored" data-anchor-id="spades">SPAdes</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use full length datasets of relevant file type here</p>
+</div>
+</div>
 <p>The current version of <a href="http://ablab.github.io/spades/">SPAdes</a> works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g.&nbsp;mammalian size genomes). For such purposes you can use it at your own risk</p>
 <p>One can use SPAdes to make their first assemblies, select <code>GENOMICS ANALYSIS: Assembly → SPAdes</code> and set parameters for assembly (k-mer values, read error correction etc). More importantly, SPAdes allow for addition of longer mate pair libraries, which should result in drastically improved assemblies. This is an opportunity to learn the role of mate pair libraries.SPAdes support “fastq” format as an input files (fastqsanger might not be compatible) and while uploading the data specify the file format as “fastq”. Some versions of SPAdes do not support interleaved files in that case provide separate (forward and reverse) files.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -336,7 +367,7 @@ Note
 </section>
 <section id="making-and-using-a-blast-database" class="level2">
 <h2 class="anchored" data-anchor-id="making-and-using-a-blast-database">Making and using a BLAST database</h2>
-<p>Using the lentinula_scaffold_1.fa file, you will create a BLAST database you can use on Galaxy. Use the <code>NCBI BLAST + makeblastdb</code> function to create a database with the lentinula_scaffold_1 sequence.</p>
+<p>Using the <code>lentinula_scaffold_1.fa</code> file, you will create a BLAST database you can use on Galaxy. Use the <code>NCBI BLAST + makeblastdb</code> function to create a database with the lentinula_scaffold_1 sequence.</p>
 <p>From the <em>L. edodes</em> <a href="https://mycocosm.jgi.doe.gov/Lenedo1/Lenedo1.home.html">Mycocosm page</a> download the sequences with the names:</p>
 <ul class="task-list">
 <li><p><label><input type="checkbox">1078261</label></p></li>
@@ -359,6 +390,19 @@ Note
 <section id="read-mapping-and-variant-calling" class="level2">
 <h2 class="anchored" data-anchor-id="read-mapping-and-variant-calling">Read mapping and variant calling</h2>
 <p>Tools: BWA-MEM, FreeBayes</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use <code>reduced_region</code> datasets of relevant file type here</p>
+</div>
+</div>
 <section id="read-mapping" class="level3">
 <h3 class="anchored" data-anchor-id="read-mapping">Read Mapping</h3>
 <p>To perform variant calling, the reads must be mapped to a reference genome. To accomplish this, we employ the Burrows-Wheeler Alignment (BWA) <a href="https://bio-bwa.sourceforge.net/bwa.shtml">tool</a>.</p>
@@ -369,6 +413,19 @@ Note
 </section>
 <section id="variant-calling" class="level3">
 <h3 class="anchored" data-anchor-id="variant-calling">Variant Calling</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use appropriate generated filetype here</p>
+</div>
+</div>
 <p>After mapping, you will receive a BAM formatted file. Use this to call variants with <a href="https://hbctraining.github.io/In-depth-NGS-Data-Analysis-Course/sessionVI/lessons/02_variant-calling.html#:~:text=%E2%80%9CFreeBayes%20is%20a%20Bayesian%20genetic,length%20of%20a%20short%2Dread">FreeBayes</a>.</p>
 <blockquote class="blockquote">
 <p>FreeBayes uses short-read alignments (BAM files with Phred+33 encoded quality scores, now standard) for any number of individuals from a population and a reference genome (in FASTA format) to determine the most-likely combination of genotypes for the population at each position in the reference. It reports positions which it finds putatively polymorphic in variant call file (VCF) format. It can also use an input set of variants (VCF) as a source of prior information, and a copy number variant map (BED) to define non-uniform ploidy variation across the samples under analysis.</p>
@@ -385,6 +442,19 @@ Note
 <section id="variant-annotation" class="level2">
 <h2 class="anchored" data-anchor-id="variant-annotation">Variant annotation</h2>
 <p>Tools: SnpEff</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use appropriate generated filetype here</p>
+</div>
+</div>
 <p>SNPeff needs a general feature format (GFF3) file as well as a FASTA file to run. It creates a database of all the coding sequences (CDSs) within a reference sequence. This database is the queried with a VCF, and the functional effect of each SNP is predicted.</p>
 <p>Use <code>SnpEff build</code> to build a database from the lenodo_scaffold_1.fa and the lenodo_scaffold_1.gff3 files.</p>
 <p>Use <code>SnpEff eff</code> to query the SnpEff database with the VCF you created with FreeBayes.</p>
