@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#read-quality-assessment" id="toc-read-quality-assessment" class="nav-link" data-scroll-target="#read-quality-assessment">Read Quality Assessment</a>
   <ul class="collapse">
   <li><a href="#fastqc" id="toc-fastqc" class="nav-link" data-scroll-target="#fastqc">FastQC</a></li>
-  <li><a href="#mutliqc" id="toc-mutliqc" class="nav-link" data-scroll-target="#mutliqc">MutliQC</a></li>
+  <li><a href="#multiqc" id="toc-multiqc" class="nav-link" data-scroll-target="#multiqc">MultiQC</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   </ul></li>
   <li><a href="#genome-assembly-and-quality-assessment" id="toc-genome-assembly-and-quality-assessment" class="nav-link" data-scroll-target="#genome-assembly-and-quality-assessment">Genome Assembly and Quality Assessment</a>
@@ -286,8 +286,8 @@ Important
 <li>In the history, select the FastQC webpage output file and press the eye-symbol to view it, HTML file you can download them and view from your computer browser.</li>
 </ol>
 </section>
-<section id="mutliqc" class="level3">
-<h3 class="anchored" data-anchor-id="mutliqc">MutliQC</h3>
+<section id="multiqc" class="level3">
+<h3 class="anchored" data-anchor-id="multiqc">MultiQC</h3>
 <p>For a better overview of the QC reports, we can use a tool called MultiQC to aggregate our FastQC reports. 1. Select <code>Genomic File Manipulation: Quality Control→ MultiQC</code> 2. Select all FastQC RawData reports and set the report type to FastQC 3. Run MultiQC and download the resulting web page and open it to view in your web browser (it is not possible to view in Galaxy).</p>
 </section>
 <section id="questions" class="level3">
@@ -307,7 +307,7 @@ Important
 <p>Tools: SPAdes, QUAST</p>
 <section id="spades" class="level3">
 <h3 class="anchored" data-anchor-id="spades">SPAdes</h3>
-<p>The current version of <a href="https://cab.spbu.ru/software/spades/">SPAdes</a> works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g.&nbsp;mammalian size genomes). For such purposes you can use it at your own risk</p>
+<p>The current version of <a href="http://ablab.github.io/spades/">SPAdes</a> works with reads produced by Illumina or IonTorrent and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads. You can also provide additional contigs that will be used as long reads. SPAdes (v3.15.0) supports paired-end reads, mate-pairs and unpaired reads. SPAdes can take as input several paired-end and mate-pair libraries simultaneously. Note, that SPAdes was initially designed for small genomes. It was tested on bacterial (both single-cell Multiple displacement amplification (MDA) and standard isolates), fungal and other small genomes. SPAdes is not intended for larger genomes (e.g.&nbsp;mammalian size genomes). For such purposes you can use it at your own risk</p>
 <p>One can use SPAdes to make their first assemblies, select <code>GENOMICS ANALYSIS: Assembly → SPAdes</code> and set parameters for assembly (k-mer values, read error correction etc). More importantly, SPAdes allow for addition of longer mate pair libraries, which should result in drastically improved assemblies. This is an opportunity to learn the role of mate pair libraries.SPAdes support “fastq” format as an input files (fastqsanger might not be compatible) and while uploading the data specify the file format as “fastq”. Some versions of SPAdes do not support interleaved files in that case provide separate (forward and reverse) files.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
