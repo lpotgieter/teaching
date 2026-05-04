@@ -194,6 +194,6 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This site contains practicals and class examples from various courses.\nThe BI1296 Practical takes a look at how to use Galaxy with some simulated shiitake mushroom data.\nThe OrthoVenn3 example takes look at previously compiled orthology analyses to characterise a random sequence using only the principles of form=function\nThe Phytozome example takes a sequence name from a paper, and takes you through obtaining the sequence from Phytozome and functionally characterising the sequence."
+    "text": "This site contains practicals and class examples from various courses.\nIn the AI section there are resources on - Words of caution on using AI - Claude usage guide to optimise your use of AI\nIn the Practical section there are the following practicals - The BI1296 Practical takes a look at how to use Galaxy with some simulated shiitake mushroom data. - The OrthoVenn3 example takes look at previously compiled orthology analyses to characterise a random sequence using only the principles of form=function. - The Phytozome example takes a sequence name from a paper, and takes you through obtaining the sequence from Phytozome and functionally characterising the sequence."
   }
 ]
