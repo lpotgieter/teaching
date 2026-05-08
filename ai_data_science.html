@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – Teaching</title>
+<title>AI in Data Science – Teaching</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ai_warning.html">AI</a></li><li class="breadcrumb-item"><a href="./ai_data_science.html">AI in Data Science</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ai_data_science.html" class="sidebar-item-text sidebar-link">
+  <a href="./ai_data_science.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">AI in Data Science</span></a>
   </div>
 </li>
@@ -199,15 +199,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#words-of-caution" id="toc-words-of-caution" class="nav-link" data-scroll-target="#words-of-caution">Words of Caution</a></li>
+  <li><a href="#claude" id="toc-claude" class="nav-link" data-scroll-target="#claude">Claude</a>
+  <ul class="collapse">
+  <li><a href="#agents" id="toc-agents" class="nav-link" data-scroll-target="#agents">Agents</a></li>
+  <li><a href="#connectors" id="toc-connectors" class="nav-link" data-scroll-target="#connectors">Connectors</a></li>
+  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
+  </ul></li>
+  <li><a href="#running-llms-locally" id="toc-running-llms-locally" class="nav-link" data-scroll-target="#running-llms-locally">Running LLM’s locally</a></li>
+  <li><a href="#additional-reading" id="toc-additional-reading" class="nav-link" data-scroll-target="#additional-reading">Additional Reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ai_warning.html">AI</a></li><li class="breadcrumb-item"><a href="./ai_data_science.html">AI in Data Science</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">AI in Data Science</h1>
 </div>
 
 
@@ -224,12 +239,96 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This site contains practicals and class examples from various courses.</p>
-<p>The <a href="./bi1296_practical.html">BI1296 Practical</a> takes a look at how to use Galaxy with some simulated shiitake mushroom data.</p>
-<p>The <a href="./class_example_orthovenn.html">OrthoVenn3 example</a> takes look at previously compiled orthology analyses to characterise a random sequence using only the principles of form=function</p>
-<p>The <a href="./class_example_phytozome.html">Phytozome example</a> takes a sequence name from a paper, and takes you through obtaining the sequence from Phytozome and functionally characterising the sequence.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Large Language Models (LLM’s) have been under development for a long time. There has been a lot of progress since the first AI, ELIZA in the 1964! We have been using AI in the form of machine learning (ML) approaches in biology and business for many years already.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ai/evolution-of-ai-ml-1950-to-2025.png" class="img-fluid figure-img"></p>
+<figcaption>Development of AI and ML <a href="https://www.netcomlearning.com/blog/the-future-of-ai-trends-every-c-level-executive-should-know">source</a></figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Data science in biology and in business is not that fundamentally different, in my opinion. There are some different underlying principles that are unique to distinct dataset, but in general, a dataframe of purchasing habits is not different from a dataframe containing penguin dimensions. Therefore, I will use sources from business and science</p>
+</div>
+</div>
+<p>The access to large amounts of data has enabled us to apply LLM’s in the way we currently do. Having minimal human interaction in the basic training of AI has allowed the algorithms to extract information and draw associations in a way we have been unable to do before!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ai/datasets.png" class="img-fluid figure-img"></p>
+<figcaption><a href="https://arxiv.org/abs/2309.00087">Training cycle</a> for LLM’s</figcaption>
+</figure>
+</div>
+<p>The interaction of humans with LLM training is really important, and gives each LLM their unique traits. in April 2026, OpenAI released a <a href="https://openai.com/index/where-the-goblins-came-from/">statement</a> about the increased mentions of goblins that seemed to have originated from an earlier model that had a “nerdy” personality users could select, and these trends emerged through transfer from the nerdy personality. Human involvement put a hard limit in the algorithm to ensure it would not mention goblins unless it was strictly necessary to the conversation with the user.</p>
+<p>LLM’s are only as powerful as the data they are trained on. Data needs to be of high quality, and there needs to be enough data to train the algorithm. This is due to the tokenization process that underlies the basic functioning of the LLM’s we are currently using, assuming we aren’t using other tools along with the LLM.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ai/tokens.jpg" class="img-fluid figure-img"></p>
+<figcaption>Next token prediction of LLM’s <a href="https://toloka.ai/blog/the-backbone-of-large-language-models-understanding-training-datasets/">source</a></figcaption>
+</figure>
+</div>
+<p>It is also realluy important to remember that LLM’s don’t work in the same way as search engines, and should not be used like that without using appropriate tools/connectors.</p>
+</section>
+<section id="words-of-caution" class="level2">
+<h2 class="anchored" data-anchor-id="words-of-caution">Words of Caution</h2>
+<p>I have a whole <a href="./ai_warning.html">document</a> about using AI with care, thinking about what you are asking it to do, and what you are providing it. Please read through it!</p>
+<p>As a general guideline</p>
+<ol type="1">
+<li>Am I phrasing my prompt in a good way? <a href="https://www.pointloma.edu/resources/business-leadership/how-optimize-your-chatgpt-experience-prompt-engineering">Here</a> is a guide to prompt engineering that might be useful</li>
+<li>Can I find this information any other way?</li>
+<li>How much time am I saving by looking this question up here vs on BioStars, for example?</li>
+<li>Do I know enough about the topic to know whether the GPT is lying to me?</li>
+<li>What are the consequences of testing the validity of the GPT solution? Can I potentially corrupt my data or my system? Is there a potential for me to lie to someone who trusts me enough to ask my opinion?</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ai/ai_alive.jpeg" class="img-fluid figure-img"></p>
+<figcaption>AI will generally hype you up and agree with you, so be cautious in how much you invest into it emotionally</figcaption>
+</figure>
+</div>
+</section>
+<section id="claude" class="level2">
+<h2 class="anchored" data-anchor-id="claude">Claude</h2>
+<p>There are many different LLM’s available online. My favourite is Claude from Anthropic. It has a fairly good data privacy policy, and the connectors available to users are also really cool!</p>
+<section id="agents" class="level3">
+<h3 class="anchored" data-anchor-id="agents">Agents</h3>
+<p>Agents are advanced AI systems that implement the tools and memory from the LLM’s to perform tasks, call and/or develop tools, and reason to produce a final answer. There is currently a lot of debate about whether it is worthwhile for users to code their own agents, or not. In my opinion, Anthropic has a lot resources (intellectual, financial, physical) that I do not have access to, and they are developing excellent agents. In my opinion, the successful application of agents is more important to thoughtful AI use than novel development.</p>
+</section>
+<section id="connectors" class="level3">
+<h3 class="anchored" data-anchor-id="connectors">Connectors</h3>
+<p>There are many connectors that have already been developed for Claude by Anthropic, but you can also import custom connectors from external MCP servers. You can apply settings so that you only enable connectors when Claude calls on them, which makes the context window a lot smaller!</p>
+</section>
+<section id="skills" class="level3">
+<h3 class="anchored" data-anchor-id="skills">Skills</h3>
+<p>Claude has access to <a href="https://code.claude.com/docs/en/skills">skills</a> to extend Claude’s capabilities. There are many repositories for skills that you can import into Claude like <a href="https://github.com/alirezarezvani/claude-skills">this</a> and <a href="https://github.com/ComposioHQ/awesome-claude-skills">this</a> as examples. But <strong>always</strong> read through the skills you are enabling and downloading because there are a lot of bad actors in the AI space that want to hack your machine and steal your tokens and/or information.</p>
+<p>These work a bit different you use Claude locally or only on the browser- see <a href="https://code.claude.com/docs/en/skills#where-skills-live">here</a> for an overview.</p>
+</section>
+</section>
+<section id="running-llms-locally" class="level2">
+<h2 class="anchored" data-anchor-id="running-llms-locally">Running LLM’s locally</h2>
+<p>You can run LLM’s locally through <a href="https://ollama.com">Ollama</a> and LLM’s from <a href="https://huggingface.co">Hugging Face</a>. The advantages here are that you are able to run the LLM’s entirely offline manner. This is the ideal way to run these algorithms if you are working with any kind of sensitive data! You can also use LLM’s through R with <a href="https://ellmer.tidyverse.org">ellmer</a> if your analyses are limited to R.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ai/openclaw_ollama.png" class="img-fluid figure-img"></p>
+<figcaption>Ollama logo</figcaption>
+</figure>
+</div>
+</section>
+<section id="additional-reading" class="level2">
+<h2 class="anchored" data-anchor-id="additional-reading">Additional Reading</h2>
+<p>https://toloka.ai/blog/the-backbone-of-large-language-models-understanding-training-datasets/ https://mlfrontiers.substack.com/p/a-friendly-introduction-to-large https://albanna-tutorials.com/llm_agents.html</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
